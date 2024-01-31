@@ -1,0 +1,26 @@
+form{
+    width: 540px;
+    height: 200px;
+    display: block;
+    margin: 5rem auto;
+    padding:20px;
+    background-color: lightblue;
+    box-shadow: 5px 5px 20px #0000004d;
+}
+input{
+    width: 300px;
+    display: block;
+    margin: 1px auto;
+}
+form button{
+    width: 100px;
+    display: block;
+    margin: 2px auto;
+}
+.todoitem{
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 20px #0000004d;
+    box-sizing: border-box;
+    clear: both;
+}

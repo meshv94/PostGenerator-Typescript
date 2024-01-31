@@ -1,0 +1,26 @@
+.todo{
+    background-color: lightblue;
+    width: 221px;
+    border-radius: 18px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-right: 8px;
+    float: left;
+}
+.todo:hover{
+    box-shadow: 8px 8px 20px #3c3c3c39;
+    
+}
+button.btn{
+    background-color: lightblue;
+    border-radius: 18px;
+    padding: 5px 10px;
+    margin: 5px 12px;
+    font-size: 17px;
+    border: none;
+}
+button.btn:hover{
+    box-shadow: 5px 5px 15px #00000039;
+    background-color: rgba(245, 245, 245, 0.63);
+    
+}
