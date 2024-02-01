@@ -1,10 +1,9 @@
 .todo{
     background-color: lightblue;
-    width: 221px;
+    width: auto;
     border-radius: 18px;
     padding: 10px 20px;
-    margin-top: 5px;
-    margin-right: 8px;
+    margin: 20px 35px;
     float: left;
 }
 .todo:hover{

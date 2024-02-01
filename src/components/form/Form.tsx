@@ -5,23 +5,26 @@ import './form.css'
 
 
 const Form: React.FC = () => {
-    const userData = useDataContext();
+
+    const { handleAddTodo } = useDataContext();
+
+
+
 
     const [text, setText] = useState<string>("")
-    const [id, setId] = useState<number | undefined>()
+    const [id, setId] = useState<number>(0)
+    // const [image, setImage] = useState<File | null>()
+
+    // const handleUploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     if (e.target.files) {
+    //         setImage(e.target.files[0]);
+    //     }
+    // };
 
 
     const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(id)
-        console.log(text)
-        let dataObj = {
-            id: id,
-            title: text,
-            like: 0,
-            dislike: 0
-        }
-        userData.push(dataObj);
+        handleAddTodo(text, id)
         setId(0)
         setText("")
     }
@@ -29,13 +32,16 @@ const Form: React.FC = () => {
     return (
         <>
             <form onSubmit={handlesubmit}>
-                <input
+                <textarea
                     onChange={(e) => { setText(e.target.value) }}
                     value={text}
-                    type="text"
-                    placeholder='Enter Title...'
+                    placeholder='Write your thoughts...'
                     required
                 /><br />
+                {/* <input
+                    type="file"
+                    onChange={handleUploadImage}
+                /> */}
                 <input
                     onChange={(e) => { setId(parseInt(e.target.value)) }}
                     value={id}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDataContext } from '../globalContext/GlobalContext'
 import "./Style.css"
 // import data from "../globalContext/data/data.js"
@@ -7,26 +7,27 @@ import "./Style.css"
 
 const Todo: React.FC = () => {
 
-    const data = useDataContext();
-    const [count, setCount] = useState(0);
+    const { todos } = useDataContext();
+    const [flag, setFlag] = useState<number>(0);
 
 
     function heart(index: number) {
-        data[index].like++
-        setCount(count + 1)
+        todos[index].like++
+        setFlag(flag+1)
     }
 
     function thumbsup(index: number) {
-        data[index].dislike++
-        setCount(count - 1)
+        todos[index].dislike++
+        setFlag(flag-1)
     }
+
 
     return (
         <div>
-            {data && data.map((Element, index) => {
-                return <div className='todo' key={Element.id}>
+            {todos && todos.map((Element, index) => {
+                return <div className='todo' key={index}>
                     <p>{Element.id}</p>
-                    <h3>{Element.title}</h3>
+                    <h5>{Element.title}</h5>
                     <button className='btn' onClick={() => { heart(index) }}>❤️{Element.like}</button>
                     <button className='btn' onClick={() => { thumbsup(index) }}>👌{Element.dislike}</button>
                 </div>

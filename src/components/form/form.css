@@ -1,14 +1,22 @@
 form{
     width: 540px;
-    height: 200px;
+    height: 250px;
     display: block;
     margin: 5rem auto;
     padding:20px;
     background-color: lightblue;
     box-shadow: 5px 5px 20px #0000004d;
 }
+textarea{
+    width: 400px;
+    height: 100px;
+    display: block;
+    margin: 1px auto;
+    border-radius: 12px;
+}
 input{
-    width: 300px;
+    width: 400px;
+    /* height: 100px; */
     display: block;
     margin: 1px auto;
 }
@@ -20,7 +28,7 @@ form button{
 .todoitem{
     display: flex;
     padding: 10px 20px;
-    box-shadow: 5px 5px 20px #0000004d;
+    /* box-shadow: 5px 5px 20px #0000004d; */
     box-sizing: border-box;
     clear: both;
 }

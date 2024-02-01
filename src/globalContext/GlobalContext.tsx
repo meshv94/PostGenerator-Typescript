@@ -1,40 +1,46 @@
-import React, { useContext, createContext, useState } from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React, { useContext, createContext, useState, Dispatch, SetStateAction } from "react";
 
-interface Tchildren {
+export type Tchildren = {
     children: React.ReactNode
 }
-interface Tuserdata {
-    id: number | undefined,
+export type Tuserdata = {
+    id: number,
     title: string,
     like: number,
     dislike: number
 }
 
-let userData = [{
-    id: 10,
-    title: "Sunday",
-    like: 0,
-    dislike: 0
-}]
+export type Tuserdatacontext = {
+    todos : Tuserdata[];
+    handleAddTodo : (task:string, id:number)=>void
+}
 
-// const [userData, setUserData] = useState([{
-//     id: 10,
-//     title: "Sunday",
-//     like: 0,
-//     dislike: 0
-// }]);
+const dataContext = createContext<Tuserdatacontext>({
+    todos: [],
+    handleAddTodo: () => {}
+});
 
-const dataContext = createContext<Tuserdata[]>(userData);
-
-export const useDataContext = () => {
+export const useDataContext = () => { 
     return useContext(dataContext);
 }
 
 
-const GlobalContext: React.FC<Tchildren> = (props) => {
+const GlobalContext = ({children}:Tchildren) => {
+
+    const [todos , setTodos] = useState<Tuserdata[]>([])
+
+    const handleAddTodo = (task:string, id:number)=>{
+        setTodos((prev)=>{
+            // const newTodos = [{id:id , title:task, like:0, dislike:0}, ...prev]
+            return [...prev, {id:id , title:task, like:0, dislike:0}]
+        }) 
+        console.log(todos)
+    }
+
     return (
-        <dataContext.Provider value={userData}>
-            {props.children}
+        <dataContext.Provider value={{todos, handleAddTodo }}>
+            {children}
         </dataContext.Provider>
     )
 }
