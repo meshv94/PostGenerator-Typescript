@@ -11,14 +11,12 @@ const Form: React.FC = () => {
     const inputFile = useRef<any>()
 
     const [text, setText] = useState<string>("")
-    const [id, setId] = useState<number>(0)
     const [image, setImage] = useState<File | null |undefined>()
 
 
     const handlesubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         handleAddTodo(text, image)
-        setId(0)
         setText("")
         setImage(undefined)
     }
@@ -50,14 +48,6 @@ const Form: React.FC = () => {
                             id="hideinput"
                         />
                     </div>
-                    <input
-                        onChange={(e) => { setId(parseInt(e.target.value)) }}
-                        value={id}
-                        type="number"
-                        placeholder='Enter ID'
-                        required
-                        style={{display:"none"}}
-                    />
                 </div>
                 <div className='submitbtn'>
                     <button className='btn btn-outline-dark' id='submitBtn' type='submit'>Post</button>

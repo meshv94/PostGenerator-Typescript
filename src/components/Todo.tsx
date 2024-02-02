@@ -22,7 +22,7 @@ const Todo: React.FC = () => {
     }
 
     function deletetodo(index: number) {
-        // todos.splice(index, 1); directly delete element by this
+        // todos.splice(index, 1); --- directly delete element by this
         if(window.confirm("Wants to delete this post!") === true){
             handleDeleteTodo(index)
             setFlag(flag + 1)
